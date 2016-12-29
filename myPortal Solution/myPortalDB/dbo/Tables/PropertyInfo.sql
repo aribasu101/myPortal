@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[PropertyInfo] (
+    [LoanId]            UNIQUEIDENTIFIER NOT NULL,
+    [PropertyTypeId]    INT              NULL,
+    [StreetAddress]     VARCHAR (50)     NULL,
+    [City]              VARCHAR (50)     NULL,
+    [State]             VARCHAR (2)      NULL,
+    [ZipCode]           VARCHAR (5)      NULL,
+    [ZipPlusFour]       VARCHAR (4)      NULL,
+    [NumOfUnits]        INT              NULL,
+    [YrBuilt]           INT              NULL,
+    [HouseNumber]       VARCHAR (50)     NULL,
+    [UnitNumber]        VARCHAR (50)     NULL,
+    [DateAcquired]      DATE             NULL,
+    [OriginalCost]      DECIMAL (18, 2)  NULL,
+    [CreateDt]          DATETIME         NULL,
+    [EditDt]            DATETIME         NULL,
+    [AppraisedValue]    DECIMAL (18)     NULL,
+    [SalesPrice]        DECIMAL (18)     NULL,
+    [GrossRentalIncome] DECIMAL (18, 2)  NULL,
+    [PercentOfRental]   DECIMAL (18, 2)  NULL,
+    [NetRentalIncome]   DECIMAL (18, 2)  NULL,
+    [CountyTypeId]      INT              NULL,
+    CONSTRAINT [PK_PropertyInfo] PRIMARY KEY CLUSTERED ([LoanId]),
+    CONSTRAINT [FK_PropertyInfo_Loan] FOREIGN KEY ([LoanId]) REFERENCES [dbo].[Loan] ([LoanId])
+);
+
